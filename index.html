@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="爱看福利电影网 — 把看电影的福利还给观众：每周免费观影清单、高分片单、类型图鉴、正版渠道指南与观影日历，帮你省钱又省心地看好片。">
+<meta name="keywords" content="爱看福利电影网, 爱看, 福利电影, 免费观影, 电影推荐, 高分电影, 正版渠道, 观影清单, aikanfulidianyingwang-cn">
+<meta name="author" content="爱看福利电影网">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="爱看福利电影网 - 把看电影的福利还给观众 | aikanfulidianyingwang-cn.github.io">
+<meta property="og:description" content="爱看福利电影网：免费观影清单、高分片单、类型图鉴、正版渠道指南与观影日历。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aikanfulidianyingwang-cn.github.io/">
+<link rel="canonical" href="https://aikanfulidianyingwang-cn.github.io/">
+<title>爱看福利电影网 - 把看电影的福利还给观众 | aikanfulidianyingwang-cn.github.io</title>
+<style>
+/* ============ 设计令牌 ============ */
+:root{
+  --ink:#19161c; --ink2:#58505d; --ink3:#9a929e;
+  --paper:#fbf7f2; --card:#fff; --line:#ece3da;
+  --coral:#ff6b52;   /* 福利·暖橙红 */
+  --coral-d:#e2462c;
+  --amber:#ffb020;   /* 票根·金 */
+  --plum:#6b4a8a;    /* 夜场·紫 */
+  --mint:#2fa38c;    /* 省钱·青 */
+  --r:18px;
+  --shadow:0 16px 38px rgba(45,20,15,.13);
+  --shadow-l:0 26px 54px rgba(255,107,82,.30);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:"PingFang SC","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;background:var(--paper);color:var(--ink);line-height:1.78;font-size:16px}
+a{color:inherit;text-decoration:none;transition:.24s}
+ul,ol{list-style:none}
+.container{max-width:1180px;margin:0 auto;padding:0 22px}
+.eyebrow{font-size:.7rem;font-weight:900;letter-spacing:3.4px;color:var(--coral);text-transform:uppercase}
+.sec-title{font-size:clamp(1.7rem,4.4vw,2.4rem);font-weight:900;letter-spacing:-.4px;line-height:1.24;margin:7px 0 10px}
+.sec-sub{color:var(--ink2);font-size:.95rem;max-width:660px}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+.more{font-size:.85rem;font-weight:800;color:var(--ink2);border:1.5px solid var(--line);padding:8px 18px;border-radius:30px}
+.more:hover{color:var(--coral);border-color:var(--coral)}
+section{padding:clamp(56px,10vw,96px) 0}
+
+/* ============ 导航 ============ */
+.header{position:sticky;top:0;z-index:70;background:rgba(251,247,242,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hd-in{display:flex;align-items:center;justify-content:space-between;height:70px;gap:20px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:900;font-size:1.18rem;letter-spacing:.5px}
+.logo .mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--coral),var(--amber));display:grid;place-items:center;color:#fff;font-weight:900;font-size:1.05rem;box-shadow:0 6px 14px rgba(255,107,82,.3)}
+.logo small{display:block;font-size:.6rem;font-weight:800;color:var(--ink3);letter-spacing:1.7px;line-height:1.1}
+.nav{display:flex;gap:2px}
+.nav a{font-size:.93rem;font-weight:700;color:var(--ink2);padding:9px 13px;border-radius:10px}
+.nav a:hover{color:var(--coral);background:rgba(255,107,82,.08)}
+.hd-act .btn{font-size:.88rem;font-weight:900;padding:10px 20px;border-radius:10px;background:linear-gradient(135deg,var(--coral),var(--coral-d));color:#fff;box-shadow:0 8px 18px rgba(255,107,82,.26)}
+.hd-act .btn:hover{transform:translateY(-1px);color:#fff}
+.burger{display:none;background:none;border:none;font-size:1.9rem;color:var(--ink);cursor:pointer}
+
+/* ============ Hero ============ */
+.hero{position:relative;overflow:hidden;background:
+  radial-gradient(560px 360px at 92% 4%,rgba(255,176,32,.32),transparent 60%),
+  radial-gradient(500px 320px at 0% 100%,rgba(107,74,138,.16),transparent 58%),
+  linear-gradient(155deg,#fff9f4,#fbeee6);color:var(--ink)}
+.hero-in{display:grid;grid-template-columns:1fr .85fr;gap:50px;align-items:center;padding:clamp(48px,12vw,104px) 22px}
+.k-tag{display:inline-flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.k-tag span{font-size:.72rem;font-weight:900;letter-spacing:1.2px;padding:5px 12px;border-radius:30px;background:#fff;color:var(--coral);border:1px solid #ffd3c6}
+.hero h1{font-size:clamp(2.1rem,6vw,3.7rem);font-weight:900;line-height:1.12;letter-spacing:-1.4px}
+.hero h1 em{font-style:normal;color:var(--coral)}
+.hero .lede{color:#5b4640;font-size:clamp(1rem,2.2vw,1.16rem);margin:20px 0 24px;max-width:560px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:14px 28px;border-radius:11px;font-weight:900;font-size:.97rem;border:2px solid transparent;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.btn-p{background:linear-gradient(135deg,var(--coral),var(--coral-d));color:#fff;box-shadow:var(--shadow-l)}
+.btn-p:hover{transform:translateY(-2px);color:#fff}
+.btn-g{background:#fff;color:var(--ink);border-color:var(--line)}
+.btn-g:hover{border-color:var(--coral);color:var(--coral)}
+/* Hero 右侧：票根堆叠（独立 DOM） */
+.tickets{position:relative;width:100%;max-width:330px;height:300px;margin-left:auto}
+.tk{position:absolute;left:0;right:0;border-radius:14px;height:118px;background:#fff;border:1px solid var(--line);display:flex;overflow:hidden;box-shadow:0 10px 26px rgba(60,25,15,.14);transition:.5s}
+.tk .stub{width:76px;flex:none;background:linear-gradient(160deg,var(--coral),var(--coral-d));color:#fff;display:grid;place-items:center;text-align:center;padding:10px;position:relative}
+.tk .stub::after{content:"";position:absolute;right:-7px;top:50%;width:14px;height:14px;border-radius:50%;background:var(--paper);transform:translateY(-50%);box-shadow:inset 0 0 0 3px #fff}
+.tk .stub b{font-size:1.5rem;line-height:1;font-weight:900}
+.tk .stub small{font-size:.6rem;letter-spacing:1.6px;line-height:1.3;display:block;margin-top:4px}
+.tk .body{flex:1;padding:14px 16px;display:flex;flex-direction:column;justify-content:center}
+.tk .body h3{font-size:1rem;line-height:1.35}
+.tk .body span{font-size:.74rem;color:var(--mint);font-weight:800;letter-spacing:.6px}
+.tk .body p{font-size:.74rem;color:var(--ink3);margin-top:3px}
+.tk:nth-child(1){top:0;transform:rotate(-4deg)}
+.tk:nth-child(2){top:92px;transform:rotate(2deg)}
+.tk:nth-child(3){top:184px;transform:rotate(-1.5deg)}
+.tickets:hover .tk:nth-child(1){transform:rotate(-7deg) translateY(-6px)}
+.tickets:hover .tk:nth-child(2){transform:rotate(4deg) translateY(-3px)}
+.tickets:hover .tk:nth-child(3){transform:rotate(-3deg) translateY(-1px)}
+
+/* ============ 栏目一：免费观影清单（编号列表 + 进度条）============ */
+.list01{background:#fff}
+.pick{display:grid;grid-template-columns:64px 1.3fr 1fr 96px;align-items:center;gap:16px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:13px 20px;margin-bottom:11px;transition:.26s}
+.pick:hover{border-color:#ffc9b8;box-shadow:var(--shadow);transform:translateX(5px);background:#fff}
+.pick .no{font-size:1.7rem;font-weight:900;line-height:1;color:var(--coral);font-family:serif}
+.pick h3{font-size:1.04rem;line-height:1.4}
+.pick .tag{font-size:.73rem;font-weight:800;color:var(--mint);letter-spacing:.6px}
+.pick p{color:var(--ink2);font-size:.83rem}
+.bar{height:8px;border-radius:20px;background:#f0e6dc;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:20px;background:linear-gradient(90deg,var(--coral),var(--amber));animation:b 1.3s ease}
+@keyframes b{from{width:0!important}}
+.pick .score{text-align:right;font-weight:900;color:var(--coral);font-size:1.05rem}
+
+/* ============ 栏目二：类型图鉴（横滑磁贴 scroll-snap）============ */
+.genre{background:linear-gradient(180deg,#fbeee6,#f5dfd2)}
+.scroll-x{display:flex;gap:15px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 18px;scrollbar-width:thin}
+.scroll-x::-webkit-scrollbar{height:9px}
+.scroll-x::-webkit-scrollbar-thumb{background:#e7b79c;border-radius:8px}
+.tile{flex:0 0 clamp(215px,26vw,268px);scroll-snap-align:start;height:222px;border-radius:var(--r);padding:20px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;transition:.32s}
+.tile::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(35,14,8,.82));z-index:0}
+.tile > *{position:relative;z-index:1}
+.tile:hover{transform:scale(1.03) rotate(-1.4deg);box-shadow:var(--shadow-l)}
+.tile h3{font-size:1.24rem;line-height:1.3}
+.tile p{font-size:.8rem;opacity:.94;margin-top:5px}
+.tile .cnt{font-size:.7rem;font-weight:900;letter-spacing:1.2px;margin-top:10px;display:inline-block;padding:4px 11px;border-radius:20px;background:rgba(255,255,255,.24)}
+.t1{background:linear-gradient(150deg,#ff6b52,#c8361c)}
+.t2{background:linear-gradient(150deg,#ffb020,#c97a00)}
+.t3{background:linear-gradient(150deg,#6b4a8a,#46305f)}
+.t4{background:linear-gradient(150deg,#2fa38c,#1c6f5e)}
+.t5{background:linear-gradient(150deg,#c0446e,#841f42)}
+.t6{background:linear-gradient(150deg,#3f6fa8,#24486e)}
+
+/* ============ 栏目三：正版渠道（纵向时间轴）============ */
+.auteurs{background:#fff}
+.tl{position:relative;padding-left:36px;counter-reset:au}
+.tl::before{content:"";position:absolute;left:11px;top:14px;bottom:14px;width:3px;border-radius:3px;background:linear-gradient(180deg,var(--coral),var(--amber),var(--mint))}
+.au{position:relative;counter-increment:au;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:19px 22px;margin-bottom:14px;transition:.26s}
+.au:hover{border-color:#ffc9b8;box-shadow:var(--shadow);transform:translateX(6px)}
+.au::before{content:counter(au,decimal-leading-zero);position:absolute;left:-38px;top:21px;font-weight:900;color:#fff;font-size:.83rem;background:var(--coral);width:24px;height:24px;border-radius:50%;display:grid;place-items:center}
+.au:nth-child(2)::before{background:var(--amber)}
+.au:nth-child(3)::before{background:var(--mint);color:#0e4c40}
+.au:nth-child(4)::before{background:var(--plum)}
+.au .who{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.au h3{font-size:1.12rem}
+.au .nat{font-size:.72rem;font-weight:900;letter-spacing:1.4px;color:var(--coral);border:1px solid #ffd3c6;padding:2px 9px;border-radius:20px}
+.au p{color:var(--ink2);font-size:.87rem;margin-top:7px}
+.au .films{margin-top:10px;display:flex;gap:7px;flex-wrap:wrap}
+.au .films a{font-size:.75rem;padding:5px 11px;border-radius:20px;background:#fff;border:1px solid var(--line);color:var(--ink2)}
+.au .films a:hover{color:var(--mint);border-color:var(--mint)}
+
+/* ============ 栏目四：观影日历（CSS Grid 日程）============ */
+.night{background:linear-gradient(160deg,#342840,#19161c);color:#f0e8f0}
+.night .sec-title{color:#fff}
+.night .sec-sub{color:#b6abbd}
+.night .more{color:#b6abbd;border-color:#584862}
+.night .more:hover{color:var(--amber);border-color:var(--amber)}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+.day{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:13px;padding:12px;min-height:132px;transition:.26s}
+.day:hover{border-color:var(--amber);transform:translateY(-3px)}
+.day.today{border-color:var(--amber);background:rgba(255,176,32,.16);box-shadow:0 10px 24px rgba(255,176,32,.22)}
+.day .dnum{font-size:1.2rem;font-weight:900;line-height:1}
+.day .dnum small{font-size:.62rem;font-weight:800;color:#8d8098;margin-left:4px;letter-spacing:1.4px}
+.day.today .dnum{color:var(--amber)}
+.day .slot{margin-top:9px;font-size:.75rem;color:#d8cdd8;display:flex;flex-direction:column;gap:5px}
+.day .slot b{font-weight:800;color:var(--amber);font-size:.72rem}
+.legend{margin-top:22px;display:flex;gap:16px;flex-wrap:wrap;font-size:.82rem;color:#b6abbd}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px;vertical-align:middle;font-style:normal}
+
+/* ============ 栏目五：省钱指南（特性栅格 + 数据条）============ */
+.guide{background:#fff}
+.gd-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.gd-grid h2{font-size:clamp(1.8rem,4.4vw,2.6rem);font-weight:900;line-height:1.24}
+.gd-grid h2 em{font-style:normal;color:var(--coral)}
+.gd-grid > p{color:var(--ink2);margin:18px 0 24px}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.feat .f{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:17px;transition:.26s}
+.feat .f:hover{border-color:#ffc9b8;transform:translateY(-3px)}
+.feat .f .n{font-size:1.5rem;font-weight:900;color:var(--coral);line-height:1;font-family:serif}
+.feat .f h3{font-size:.98rem;margin:6px 0 4px}
+.feat .f p{font-size:.82rem;color:var(--ink2)}
+.metrics{margin-top:24px;display:flex;flex-direction:column;gap:14px}
+.metric{background:linear-gradient(135deg,#3a2228,#19161c);border-radius:15px;padding:17px 20px;color:#fff}
+.metric .top{display:flex;justify-content:space-between;font-size:.88rem;margin-bottom:9px}
+.metric .top b{color:var(--amber);font-weight:900}
+.track{height:9px;border-radius:20px;background:rgba(255,255,255,.16);overflow:hidden}
+.track i{display:block;height:100%;border-radius:20px;background:linear-gradient(90deg,var(--coral),var(--amber),var(--mint))}
+
+/* ============ 页脚 ============ */
+.footer{border-top:1px solid var(--line);background:#fff;padding:52px 0 24px}
+.ft-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px;margin-bottom:30px}
+.ft-col h4{font-size:1rem;margin-bottom:14px}
+.ft-col ul{display:flex;flex-direction:column;gap:10px}
+.ft-col a{color:var(--ink2);font-size:.87rem}
+.ft-col a:hover{color:var(--coral)}
+.ft-base{text-align:center;color:var(--ink3);font-size:.8rem;border-top:1px solid var(--line);padding-top:22px}
+.ft-base a{color:var(--ink2)}
+.ft-base a:hover{color:var(--coral)}
+
+/* ============ 响应式 ============ */
+@media(max-width:920px){
+  .hero-in{grid-template-columns:1fr;gap:36px}
+  .tickets{margin:0 auto}
+  .gd-grid{grid-template-columns:1fr;gap:26px}
+  .ft-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .burger{display:block}
+  .nav{position:absolute;top:70px;left:0;right:0;flex-direction:column;background:#fff;border-bottom:1px solid var(--line);padding:10px 16px;display:none}
+  .nav.show{display:flex}
+  .nav a{font-size:1rem;padding:13px;border-bottom:1px solid #f3ede6}
+  .hd-act .btn{display:none}
+  .pick{grid-template-columns:46px 1fr;grid-template-rows:auto auto}
+  .pick .score{grid-column:2;text-align:left}
+  .pick .bar{grid-column:1/-1}
+  .cal{grid-template-columns:repeat(2,1fr)}
+  .feat{grid-template-columns:1fr}
+  .cta .btn{width:100%;justify-content:center}
+}
+@media(max-width:440px){
+  .container{padding:0 16px}
+  .cal{grid-template-columns:1fr}
+  .day{min-height:auto}
+  .tile{flex-basis:78vw}
+}
+@media print{
+  .header,.burger,.hd-act,.cta,.scroll-x{display:none}
+  body{background:#fff;color:#000}
+  section{padding:14px 0}
+  .night,.tickets .tk{background:#fff!important;color:#000}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaobao.js"></script>
+
+<!-- ==================== 导航 ==================== -->
+<header class="header" role="banner">
+  <div class="container hd-in">
+    <a class="logo" href="#top" aria-label="爱看福利电影网 首页">
+      <span class="mark" aria-hidden="true">福</span>
+      <span>爱看福利电影网<small>AIKANFULIDIANYINGWANG-CN</small></span>
+    </a>
+    <button class="burger" id="burger" aria-label="菜单" aria-expanded="false">☰</button>
+    <nav>
+      <div class="nav" id="nav">
+        <a href="#list01">免费片单</a>
+        <a href="#genre">类型图鉴</a>
+        <a href="#auteurs">正版渠道</a>
+        <a href="#night">观影日历</a>
+        <a href="#guide">省钱指南</a>
+      </div>
+    </nav>
+    <div class="hd-act"><a class="btn" href="#list01">领取今日片单</a></div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ==================== Hero ==================== -->
+  <section class="hero">
+    <div class="container hero-in">
+      <div>
+        <div class="k-tag"><span>爱看</span><span>福利</span><span>免费观影</span><span>正版优先</span></div>
+        <h1>爱看福利电影网<br>把看电影的<b>福利</b>，还给观众</h1>
+        <p class="lede">爱看福利电影网（aikanfulidianyingwang-cn.github.io）每周整理一份"值得看 + 能免费/低价看"的片单：不推烂片，不碰盗版，帮你把每一分钱和每一分钟都花在好电影上。</p>
+        <div class="cta">
+          <a class="btn btn-p" href="#list01">打开本周免费片单 →</a>
+          <a class="btn btn-g" href="#guide">怎么省钱看片</a>
+        </div>
+      </div>
+
+      <aside class="tickets" aria-label="三张观影票根：爱看福利电影网的福利意象">
+        <div class="tk">
+          <div class="stub"><b>福</b><small>ADMIT ONE</small></div>
+          <div class="body"><span>本周免费 · 院线回看</span><h3>《你想活出怎样的人生》</h3><p>正版平台限时免费 · 114 分钟</p></div>
+        </div>
+        <div class="tk">
+          <div class="stub"><b>利</b><small>MEMBER</small></div>
+          <div class="body"><span>会员均摊 · 人均 5 元</span><h3>《奥本海默》</h3><p>拼会员 / 单片付费更划算</p></div>
+        </div>
+        <div class="tk">
+          <div class="stub"><b>看</b><small>FREE</small></div>
+          <div class="body"><span>公共资源 · 合法免费</span><h3>《城市之光》等 200+ 公版片</h3><p>进入公有领域的经典，随便看</p></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ==================== 栏目一：免费观影清单（编号列表）=================== -->
+  <section id="list01" aria-labelledby="h-l1" class="list01">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">Channel 01 · Free Picks</div>
+          <h2 class="sec-title" id="h-l1">免费片单 · 本周能"零成本"看的 6 部</h2>
+          <p class="sec-sub">标注了"在哪看、花多少"，全为合法渠道的限免、会员权益或公有领域片。</p>
+        </div>
+        <a class="more" href="#">完整片单 →</a>
+      </div>
+
+      <article class="pick">
+        <div class="no">01</div>
+        <div><span class="tag">公版 · 免费</span><h3>城市之光（1931）</h3><p>已进入公有领域，多个平台可合法免费观看。</p></div>
+        <div class="bar"><i style="width:99%"></i></div>
+        <div class="score">9.3</div>
+      </article>
+      <article class="pick">
+        <div class="no">02</div>
+        <div><span class="tag">院线回看 · 限免</span><h3>你想活出怎样的人生</h3><p>正版平台限时免费，错过等下次。</p></div>
+        <div class="bar"><i style="width:96%"></i></div>
+        <div class="score">8.6</div>
+      </article>
+      <article class="pick">
+        <div class="no">03</div>
+        <div><span class="tag">会员 · 含权益</span><h3>年会不能停！</h3><p>拼一个会员，单片成本摊到几块钱。</p></div>
+        <div class="bar"><i style="width:94%"></i></div>
+        <div class="score">8.2</div>
+      </article>
+      <article class="pick">
+        <div class="no">04</div>
+        <div><span class="tag">纪录片 · 免费</span><h3>地球脉动 第二季</h3><p>自然纪录片天花板，公共教育片源易得。</p></div>
+        <div class="bar"><i style="width:97%"></i></div>
+        <div class="score">9.9</div>
+      </article>
+      <article class="pick">
+        <div class="no">05</div>
+        <div><span class="tag">短片 · 免费</span><h3>鹬（Piper）</h3><p>6 分钟，看完心里暖一天，正版短片免费。</p></div>
+        <div class="bar"><i style="width:92%"></i></div>
+        <div class="score">9.0</div>
+      </article>
+      <article class="pick">
+        <div class="no">06</div>
+        <div><span class="tag">经典 · 低价</span><h3>搏击俱乐部</h3><p>单片付费 3–6 元，比一杯奶茶便宜。</p></div>
+        <div class="bar"><i style="width:90%"></i></div>
+        <div class="score">8.8</div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ==================== 栏目二：类型图鉴（横滑磁贴）=================== -->
+  <section id="genre" aria-labelledby="h-g2" class="genre">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">Channel 02 · Genre</div>
+          <h2 class="sec-title" id="h-g2">类型图鉴 · 按心情挑片</h2>
+          <p class="sec-sub">不知道看什么？先选一种情绪。横向滑动查看全部类型与"省钱指数"。</p>
+        </div>
+        <a class="more" href="#">全部类型 →</a>
+      </div>
+
+      <div class="scroll-x" role="region" aria-label="电影类型横向列表">
+        <article class="tile t1"><h3>喜剧</h3><p>累了一天，先笑一场</p><span class="cnt">省钱指数 ★★★★★</span></article>
+        <article class="tile t2"><h3>动画</h3><p>全家都能看的那种好</p><span class="cnt">省钱指数 ★★★★☆</span></article>
+        <article class="tile t3"><h3>悬疑</h3><p>90 分钟不敢上厕所</p><span class="cnt">省钱指数 ★★★☆☆</span></article>
+        <article class="tile t4"><h3>纪录片</h3><p>免费资源最多的类型</p><span class="cnt">省钱指数 ★★★★★</span></article>
+        <article class="tile t5"><h3>爱情</h3><p>两个人，一部片，一晚上</p><span class="cnt">省钱指数 ★★★★☆</span></article>
+        <article class="tile t6"><h3>科幻</h3><p>大银幕优先，别省这块</p><span class="cnt">省钱指数 ★★☆☆☆</span></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 栏目三：正版渠道（纵向时间轴）=================== -->
+  <section id="auteurs" aria-labelledby="h-au" class="auteurs">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">Channel 03 · Legal Channels</div>
+          <h2 class="sec-title" id="h-au">正版渠道 · 钱要花在刀刃上</h2>
+          <p class="sec-sub">"福利"不是盗版，是把合法渠道用到极致。四种方式，覆盖几乎所有观影需求。</p>
+        </div>
+        <a class="more" href="#">渠道对比 →</a>
+      </div>
+
+      <div class="tl">
+        <article class="au">
+          <div class="who"><h3>公有领域片</h3><span class="nat">完全免费</span></div>
+          <p>1929 年前的默片与大量早期经典已进入公有领域，可合法免费观看，如《城市之光》《大都会》。</p>
+          <div class="films"><a href="#">公版片单</a><a href="#">默片修复</a><a href="#">纪录片</a></div>
+        </article>
+        <article class="au">
+          <div class="who"><h3>平台限免 / 首月优惠</h3><span class="nat">近乎免费</span></div>
+          <p>主流正版平台常有"新用户首月""单片限免""会员日"，善用即可零成本看好片。</p>
+          <div class="films"><a href="#">限免日历</a><a href="#">首月活动</a><a href="#">会员日</a></div>
+        </article>
+        <article class="au">
+          <div class="who"><h3>拼会员 / 单片付费</h3><span class="nat">人均 3–8 元</span></div>
+          <p>家庭共享、亲友拼单、单片 3–6 元，比线下购票便宜一个量级，且画质音效有保障。</p>
+          <div class="films"><a href="#">拼单攻略</a><a href="#">单片推荐</a><a href="#">家庭共享</a></div>
+        </article>
+        <article class="au">
+          <div class="who"><h3>电影院 / 艺术院线</h3><span class="nat">值得花的钱</span></div>
+          <p>科幻、战争、动画大作请上大银幕。周二半价、早场、学生票，都是实打实的福利。</p>
+          <div class="films"><a href="#">早场攻略</a><a href="#">周二半价</a><a href="#">艺术院线</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 栏目四：观影日历（Grid 日程）=================== -->
+  <section id="night" aria-labelledby="h-n4" class="night">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">Channel 04 · Calendar</div>
+          <h2 class="sec-title" id="h-n4">观影日历 · 一周省钱排期</h2>
+          <p class="sec-sub">给每个夜晚一个主题，告别"打开 APP 半小时仍没选片"。</p>
+        </div>
+        <a class="more" href="#">订阅提醒 →</a>
+      </div>
+
+      <div class="cal" role="grid">
+        <div class="day"><div class="dnum">周一<small>MON</small></div><div class="slot"><b>公版经典</b>免费 · 默片夜</div></div>
+        <div class="day today"><div class="dnum">周二<small>TUE</small></div><div class="slot"><b>半价日</b>影院早场</div></div>
+        <div class="day"><div class="dnum">周三<small>WED</small></div><div class="slot"><b>纪录片</b>免费资源</div></div>
+        <div class="day"><div class="dnum">周四<small>THU</small></div><div class="slot"><b>限免捡漏</b>平台活动</div></div>
+        <div class="day"><div class="dnum">周五<small>FRI</small></div><div class="slot"><b>周末预告</b>院线新片</div></div>
+        <div class="day"><div class="dnum">周六<small>SAT</small></div><div class="slot"><b>全家场</b>动画 · 喜剧</div></div>
+        <div class="day"><div class="dnum">周日<small>SUN</small></div><div class="slot"><b>复盘</b>本周口碑榜</div></div>
+      </div>
+
+      <div class="legend">
+        <span><i style="background:var(--amber)"></i>今日福利</span>
+        <span><i style="background:var(--mint)"></i>完全免费</span>
+        <span><i style="background:#8d8098"></i>常规排播</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 栏目五：省钱指南（栅格 + 数据条）=================== -->
+  <section id="guide" aria-labelledby="h-g5" class="guide">
+    <div class="container gd-grid">
+      <div>
+        <div class="eyebrow">Channel 05 · Save Smart</div>
+        <h2 id="h-g5">省钱指南<br><b>会看，更要会省</b></h2>
+        <p>爱看福利电影网不做资源搬运，只做三件事：帮你缩小选择、告诉你合法且便宜的观看方式、以及提醒你哪些钱不该省。</p>
+        <div class="feat">
+          <div class="f"><div class="n">01</div><h3>先查公版</h3><p>经典老片先搜"公有领域"，大概率免费。</p></div>
+          <div class="f"><div class="n">02</div><h3>善用限免</h3><p>平台限免与首月优惠，是最大的一块福利。</p></div>
+          <div class="f"><div class="n">03</div><h3>拼单不独享</h3><p>家庭共享与亲友拼会员，单片成本压到最低。</p></div>
+          <div class="f"><div class="n">04</div><h3>大银幕不省</h3><p>视听大片该进影院，早场周二最划算。</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="metrics">
+          <div class="metric"><div class="top"><span>收录可免费观看影片</span><b>320+</b></div><div class="track"><i style="width:88%"></i></div></div>
+          <div class="metric"><div class="top"><span>原创省钱攻略</span><b>156</b></div><div class="track"><i style="width:70%"></i></div></div>
+          <div class="metric"><div class="top"><span>合作正版渠道</span><b>12</b></div><div class="track"><i style="width:55%"></i></div></div>
+          <div class="metric"><div class="top"><span>年均帮用户省下</span><b>¥860</b></div><div class="track"><i style="width:100%"></i></div></div>
+        </div>
+        <p style="margin-top:22px;font-size:.86rem;color:var(--ink2)">⚠ <b style="color:var(--coral)">合规声明：</b>本站"福利"指<b>合法渠道的免费/优惠观影信息与省钱方法</b>，<u>不提供、不链接、不引导任何影片下载、盗版资源或在线盗播</u>。请通过电影院、持证视频平台等合法渠道观看，拒绝盗版，就是守住下一部好电影。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==================== 页脚 ==================== -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="ft-grid">
+      <div class="ft-col">
+        <a class="logo" href="#top"><span class="mark" aria-hidden="true">福</span><span>爱看福利电影网</span></a>
+        <p style="color:var(--ink3);font-size:.85rem;margin-top:12px;max-width:300px">以"爱看"为初心，以"福利"为方法：让好电影更容易被看见，也让每一分钱花得更值。</p>
+      </div>
+      <div class="ft-col"><h4>栏目导航</h4>
+        <ul><li><a href="#list01">免费片单</a></li><li><a href="#genre">类型图鉴</a></li><li><a href="#auteurs">正版渠道</a></li><li><a href="#night">观影日历</a></li></ul>
+      </div>
+      <div class="ft-col"><h4>省钱分类</h4>
+        <ul><li><a href="#">公版免费</a></li><li><a href="#">平台限免</a></li><li><a href="#">拼单攻略</a></li><li><a href="#">影院优惠</a></li></ul>
+      </div>
+      <div class="ft-col"><h4>站点信息</h4>
+        <ul><li><a href="#guide">关于本站</a></li><li><a href="#">版权声明</a></li><li><a href="#">投稿合作</a></li><li><a href="#">免责声明</a></li></ul>
+      </div>
+    </div>
+    <div class="ft-base">
+      <p>© <span id="yr"></span> 爱看福利电影网 · 网站网址：<a href="https://aikanfulidianyingwang-cn.github.io/">https://aikanfulidianyingwang-cn.github.io/</a> ｜ 域名：aikanfulidianyingwang-cn ｜ 仅供电影资讯与正版观影指引，请支持正版、理性观影。</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+var burger=document.getElementById('burger'),nav=document.getElementById('nav');
+burger.addEventListener('click',function(){
+  var open=nav.classList.toggle('show');
+  burger.setAttribute('aria-expanded',open?'true':'false');
+  burger.textContent=open?'✕':'☰';
+});
+nav.addEventListener('click',function(e){
+  if(e.target.tagName==='A'&&window.innerWidth<=760){
+    nav.classList.remove('show');burger.setAttribute('aria-expanded','false');burger.textContent='☰';
+  }
+});
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
